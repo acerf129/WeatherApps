@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding:1em;
+     background: #f7f7f7; 
+}
+nav {
+    height: 50px;
+    background-color: #00AA90;
+    display: flex;
+    padding-bottom: 20px;
+    position:sticky;
+}
+.datarow{ 
+    margin-top: 50px;
+    padding: 1em;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+ h1{
+text-align: center;
+margin-top: 5px;
+}
+footer{
+    text-align: center;
+    border-top:1px solid #a6a6a6;
+    margin-top: 2em;
+}

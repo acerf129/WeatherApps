@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Weather Detactor</title>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <nav class="row">
+        <div align="center">
+            <h1 class="col-md-12">
+                Weather Detector
+            </h1>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <center class="row">
+        <form action="" method="post" class="col-md-6 col-md-offset-3">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" class="form-control" name="city" placeholder="Search Country Or City Name">
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </form>
+      </center>
+    <div class="row">
+        <div class="{{datarow}} col-md-6 col-md-offset-3">
+            {% if data %}
+            <p class="text-danger">{{dates}},{{times}}</p>
+            <h1 class="text-primary">{{city}},{{data.country_code}}</h1><br>
+            <h2 class="text-danger">Weather: {{data.weather_main}}</h2>
+            <h3>Feels like  {{data.temp}} {{data.weather_desc}}</h3>
+                <h5>Coordinate : {{data.coordinate}}</h5>
+                <h5>Temperature Max : {{data.temp_max}}</h5>
+                <h5>Temperature Minimun : {{data.temp_min}}</h5>
+                <h5>Pressure : {{data.pressure}} hPa</h5>
+                <h5>Humidity : {{data.humidity}} %</h5>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+      <p>Powered By <a href="https://openweathermap.org/city/1861060" target="_blank">OpenWeatherMap</a></p>
+      
+    </footer>
+</body>
+</html>
